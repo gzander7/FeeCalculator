@@ -17,3 +17,9 @@ input, button {
 #result {
     margin-top: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+    .calculator {
+        padding: 10px;
+    }
+}
