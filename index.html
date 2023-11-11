@@ -12,17 +12,29 @@
     </div>
     <div class="calculator">
         <!-- Input fields -->
-        <label for="Street Age">Street Age</label>
-        <input type="number" id="age" placeholder="Enter Street Age">
+        <div class="input-container">
+            <label for="Street Age">Street Age</label>
+            <input type="number" id="age" placeholder="Enter Street Age" oninput="displayStreetAgeMultiplyer()">
+            <span id="streetAgeDisplay">0</span>
+        </div>
 
-        <label for="Length">Length In Feet</label>
-        <input type="number" id="length" placeholder="Enter Length(ft)">
+        <div class="input-container">
+            <label for="Length">Length In Feet</label>
+            <input type="number" id="length" placeholder="Enter Length(ft)">
+        </div>
 
-        <label for="Width">Width In Feet</label>
-        <input type="number" id="width" placeholder="Enter Width(ft)">
+        <div class="input-container">
+            <label for="Width">Width In Feet</label>
+            <input type="number" id="width" placeholder="Enter Width(ft)">
+        </div>
 
-        <!-- Button to calculate -->
-        <button onclick="calculateCost()">Calculate</button>
+        <!-- Button to reset -->
+        <button onclick="reset()">Reset</button>
+
+        <div class="input-container">
+            <input type="checkbox" id="showAdvancedCalc" onclick="showAdvancedCalc()">
+            <label for="showAdvancedCalc">Show Advanced Calculation</label>
+        </div>
 
         <!-- Display result -->
         <p id="result">Degradation Fee: $0.00</p>
