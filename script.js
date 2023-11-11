@@ -47,7 +47,7 @@ function calculateCost() {
 
     var cost = ageMultiplier * (length * width);
 
-    document.getElementById('result').innerText = 'Cost: $' + cost.toFixed(2);
+    document.getElementById('result').innerText = 'Degradation Fee: $' + cost.toFixed(2);
     document.getElementById('ShowAdvancedCalc').checked = false;
 }
 
