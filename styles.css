@@ -3,6 +3,7 @@ body {
     background-color: #222;
     color: #fff;
 }
+
 .title-container {
     margin-left: 10px; 
 }
@@ -22,11 +23,29 @@ body {
     margin-bottom: 5px;
 }
 
-.calculator input, button, span {
+.calculator input,
+.calculator button,
+.calculator span {
     margin-bottom: 5px;
     background-color: #333;
-    color: #fff
+    color: #fff;
 }
+
+.street-age-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.street-age-container span {
+    position: absolute;
+    left: 100%; 
+    margin-left: 10px; 
+}
+
+
 
 .input-container {
     display: flex;
@@ -34,10 +53,19 @@ body {
     align-items: flex-start;
 }
 
-input, button {
-    margin-bottom: 10px;
-    padding: 8px;
+.input-with-addon {
+    display: flex;
+    align-items: center;
 }
+
+.input-with-addon label {
+    margin-bottom: 5px; 
+}
+
+.input-with-addon input {
+    margin-bottom: 0;
+}
+
 
 #result {
     margin-top: 10px;
@@ -48,16 +76,13 @@ input, button {
         padding: 10px;
     }
 
-   label, input {
-    display: block;
-    margin-bottom: 10px;
-   }
+    .calculator label,
+    .calculator input {
+        display: block;
+        margin-bottom: 10px;
+    }
 
-   button {
-       margin-top: 10px;
-   }
-}
-
-#streetAgeDisplay {
-    margin-left: 5px;
+    .calculator button {
+        margin-top: 10px;
+    }
 }
