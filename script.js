@@ -96,9 +96,10 @@ function showAdvancedCalc() {
         detailsElement.innerText = `Age Multiplier: $${ageMultiplier.toFixed(2)}`;
         detailsElement.innerText += `\nCut Length: ${isNaN(length) ? 0 : length} ft`;
         detailsElement.innerText += `\nCut Width: ${isNaN(width) ? 0 : width} ft`;
-        detailsElement.innerText += `\nArea Of Infulecnce: ${isNaN(length) ? 0 : length + 4} ft^2`;
-        detailsElement.innerText += `\nArea of Infulence: ${isNaN(width) ? 0 :width + 4} ft^2`;
+        detailsElement.innerText += `\nEffected Length: ${isNaN(length) ? 0 : length + 4}`;
+        detailsElement.innerText += `\nEffected Width: ${isNaN(width) ? 0 :width + 4}`;
         detailsElement.innerText += `\nArea of Infulence: ${isNaN(length) || isNaN(width) ? 0 :(length + 4) * (width + 4)} ft^2`;
+        detailsElement.innerText += `\nCalculation: ${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? '' : "$" + ageMultiplier.toFixed(2) + ' X ' + (length +4) + 'ft'  + ' X ' + (width + 4) + 'ft'} = $${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? 0 : (ageMultiplier * (length + 4) * (width + 4)).toFixed(2)}`;
     } else {
         // If the checkbox is unchecked, remove the details element if it exists
         if (detailsElement) {
