@@ -80,4 +80,16 @@ body {
     .calculator button {
         margin-top: 10px;
     }
+
+    .input-container,
+    .checkbox-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-container input[type="checkbox"],
+    .checkbox-container input[type="checkbox"] {
+        margin-bottom: 0;
+    }
 }
