@@ -8,7 +8,7 @@ body {
     margin-left: 10px; 
 }
 
-.calculator {
+.deg-fee-calculator {
     background-color: #333;
     color: #fff;
     padding: 30px;
@@ -19,11 +19,11 @@ body {
     align-items: center;
 }
 
-.calculator label {
+.deg-fee-calculator label {
     margin-bottom: 5px;
 }
 
-.calculator input, button, span {
+.deg-fee-calculator input, button, span {
     margin-bottom: 5px;
     background-color: #333;
     color: #fff;
@@ -37,58 +37,62 @@ body {
     margin-bottom: 5px;
 }
 
-.street-age-container span {
+.street-age-container aside {
     position: absolute;
     left: 100%; 
     margin-left: 10px; 
 }
 
-.input-container {
+.length-container,
+.width-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
-.input-with-addon {
+.age-addon {
     display: flex;
-    align-items: center;
 }
 
-.input-with-addon label {
+.age-addon label {
     margin-bottom: 5px; 
 }
 
-.input-with-addon input {
+.age-addon input {
     margin-bottom: 0;
 }
 
 #result {
     margin-top: 10px;
+    color: #2600ff;
 }
 
+
+
 @media only screen and (max-width: 600px) {
-    .calculator {
+    .deg-fee-calculator {
         padding: 10px;
     }
 
-    .calculator label,
-    .calculator input {
+    .deg-fee-calculator label,
+    .deg-fee-calculator input {
         display: block;
         margin-bottom: 10px;
     }
 
-    .calculator button {
+    .deg-fee-calculator button {
         margin-top: 10px;
     }
 
-    .input-container,
+    .length-container,
+    .width-container,
     .checkbox-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .input-container input[type="checkbox"],
+    .length-container,
+    .width-container input[type="checkbox"],
     .checkbox-container input[type="checkbox"] {
         margin-bottom: 0;
     }
