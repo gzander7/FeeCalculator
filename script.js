@@ -35,20 +35,20 @@ function calculateCost() {
     var age = parseFloat(document.getElementById('age').value);
     var ageMultiplier = 0;
 
-    // Check for NaN
-    if (isNaN(length) || isNaN(width) || isNaN(age)) {
-        console.log('Invalid input values');
-        return;
-    }
-    
     var ageMultiplier = calculateAgeMultiplier(age);
     length = length + 4;
     width = width + 4;
 
     var cost = ageMultiplier * (length * width);
 
-    document.getElementById('result').innerText = 'Degradation Fee: $' + cost.toFixed(2);
-    document.getElementById('ShowAdvancedCalc').checked = false;
+    // Check for NaN
+    if (isNaN(length) || isNaN(width) || isNaN(age)) {
+        document.getElementById('result').innerText = '';
+    } else {
+        document.getElementById('result').innerText = 'Degradation Fee: $' + cost.toFixed(2);
+        document.getElementById('ShowAdvancedCalc').checked = false;
+    }
+
 }
 
 function reset() {
@@ -93,13 +93,13 @@ function showAdvancedCalc() {
         }
 
         // Set the content of the details element
-        detailsElement.innerText = `Age Multiplier: $${ageMultiplier.toFixed(2)}`;
-        detailsElement.innerText += `\nCut Length: ${isNaN(length) ? 0 : length} ft`;
-        detailsElement.innerText += `\nCut Width: ${isNaN(width) ? 0 : width} ft`;
-        detailsElement.innerText += `\nEffected Length: ${isNaN(length) ? 0 : length + 4} ft`;
-        detailsElement.innerText += `\nEffected Width: ${isNaN(width) ? 0 :width + 4} ft`;
-        detailsElement.innerText += `\nArea of Infulence: ${isNaN(length) || isNaN(width) ? 0 :(length + 4) * (width + 4)} ft^2`;
-        detailsElement.innerText += `\n${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? '' : "$" + ageMultiplier.toFixed(2) + ' X ' + (length +4) + 'ft'  + ' X ' + (width + 4) + 'ft'} ${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? '' : "= $"} ${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? "" : (ageMultiplier * (length + 4) * (width + 4)).toFixed(2)}`;
+        detailsElement.innerText = `${isNaN(age) ? "" :`Age Multiplier: $${ageMultiplier.toFixed(2)}`}`;
+        detailsElement.innerText += `${isNaN(length) ? "" :`\nCut Length: ${isNaN(length) ? 0 : length} ft`}`;
+        detailsElement.innerText += `${isNaN(width) ? "" :`\nCut Width: ${isNaN(width) ? 0 : width} ft`}`;
+        detailsElement.innerText += `${isNaN(length) ? "" : `\nEffected Length: ${isNaN(length) ? 0 : length + 4} ft`}`;
+        detailsElement.innerText += `${isNaN(width) ? "" : `\nEffected Width: ${isNaN(width) ? 0 :width + 4} ft`}`;
+        detailsElement.innerText += `${isNaN(length) || isNaN(width) ? "" :`\nArea of Infulence: ${isNaN(length) || isNaN(width) ? 0 :(length + 4) * (width + 4)} ft^2`}`;
+        detailsElement.innerText += `${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? '' : `\n${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? '' : "$" + ageMultiplier.toFixed(2) + ' X ' + (length +4) + 'ft'  + ' X ' + (width + 4) + 'ft'} ${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? '' : "= $"} ${isNaN(ageMultiplier) || isNaN(length) || isNaN(width) ? "" : (ageMultiplier * (length + 4) * (width + 4)).toFixed(2)}`}`;
     } else {
         // If the checkbox is unchecked, remove the details element if it exists
         if (detailsElement) {
