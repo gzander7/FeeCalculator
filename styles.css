@@ -64,6 +64,7 @@ body {
 #result {
     margin-top: 10px;
     color: rgb(255, 0, 0);
+    font-weight: bold;
 }
 
 
