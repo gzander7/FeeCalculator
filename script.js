@@ -147,126 +147,149 @@ document.getElementById('width').addEventListener('input', function () {
 document.getElementById('classification').addEventListener('change', function () {
     detourcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('total-lanes').addEventListener('change', function () {
     updateClosedLanesOptions();
     factorForDrivingLanes();
     totalTrafficControll();
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('lanes-closed').addEventListener('input', function () {
     factorForDrivingLanes()
     detourcalc();
     totalTrafficControll();
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('detour').addEventListener('input', function () {
     detourcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('detour-days').addEventListener('input', function () {
     detourcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('detour-unit-cost').addEventListener('input', function () {
     detourcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('detour-reduce').addEventListener('input', function () {
     detourcalc();
     detourreduce();
     totalTrafficControll()
-
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('parking-lanes').addEventListener('input', function () {
     parkingcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('parking-length').addEventListener('input', function () {
     parkingcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('parking-RW').addEventListener('input', function () {
     parkingcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('parking-fee').addEventListener('input', function () {
     parkingcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('parking-days').addEventListener('input', function () {
     parkingcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('sidewalks-sides').addEventListener('input', function () {
     sidewalkcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('sidewalks-length').addEventListener('input', function () {
     sidewalkcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('sidewalks-RW').addEventListener('input', function () {
     sidewalkcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('sidewalks-cost').addEventListener('input', function () {
     sidewalkcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 }); 
 
 document.getElementById('sidewalks-days').addEventListener('input', function () {
     sidewalkcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 }); 
 
 document.getElementById('sidewalks-reduce').addEventListener('input', function () {
     sidewalkreduce();
     sidewalkcalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('number-meters').addEventListener('input', function () {
     metercalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('cost-meters').addEventListener('input', function () {
     metercalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('meter-days').addEventListener('input', function () {
     metercalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('alleys').addEventListener('input', function () {
     alleycalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('alley-days').addEventListener('input', function () {  
     alleycalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 document.getElementById('alley-cost').addEventListener('input', function () {
     alleycalc();
     totalTrafficControll()
+    showAdvancedCalctraffic()
 });
 
 function updateADT() {
