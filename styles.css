@@ -218,13 +218,13 @@ button {
 }
 
 a:link {
-    color: green;
+    color: rgb(113, 0, 128);
     background-color: transparent;
     text-decoration: none;
 }
   
 a:visited {
-    color: pink;
+    color: rgb(255, 149, 166);
     background-color: transparent;
     text-decoration: none;
 }
