@@ -639,8 +639,9 @@ function showAdvancedCalctraffic() {
             resultElementTraffic.insertAdjacentElement('afterend', detailsElementTraffic);
         }
 
-        detailsElementTraffic.innerText = `${isNaN(ADT) ? "" :`ADT: ${ADT}`}`;
-        detailsElementTraffic.innerText += `${isNaN(detourDays) ? "" :`\nDetour Days: ${detourDays} Days`}`;
+        detailsElementTraffic.innerText = `Application Fee: $88`;
+        detailsElementTraffic.innerText += `${isNaN(ADT) ? "" :`\nADT: ${ADT}`}`;
+        detailsElementTraffic.innerText += `${isNaN(detourDays) ? "" :`\nDetour Days: ${detourDays}`}`;
         detailsElementTraffic.innerText += `${isNaN(detour) ? "" :`\nDetour Length: ${detour.toFixed(2)} Miles`} `;
         detailsElementTraffic.innerText += `${isNaN(detourUnit) ? "" :`\nDetour Unit Cost: $${detourUnit.toFixed(2)}`}`;
         detailsElementTraffic.innerText += `${isNaN(factorTravel) ? "" :`\nOne Way Two Way Multiplier: ${factorTravel}`}`;
@@ -652,24 +653,24 @@ function showAdvancedCalctraffic() {
         detailsElementTraffic.innerText += `${isNaN(parkingLength) ? "" :`\nParking Length: ${parkingLength}ft`}`;
         detailsElementTraffic.innerText += `${isNaN(parkingRW) ? "" :`\nParking RW: ${parkingRW}ft`}`;
         detailsElementTraffic.innerText += `${isNaN(parkingFee) ? "" :`\nParking Fee: $${parkingFee.toFixed(2)}`}`;
-        detailsElementTraffic.innerText += `${isNaN(parkingDays) ? "" :`\nParking Days: ${parkingDays} Days`}`;
+        detailsElementTraffic.innerText += `${isNaN(parkingDays) ? "" :`\nParking Days: ${parkingDays}`}`;
         detailsElementTraffic.innerText += `${isNaN(parkingSides) || isNaN(parkingLength) || isNaN(parkingRW) || isNaN(parkingFee) || isNaN(parkingDays) ? "" :`\n${isNaN(parkingSides) || isNaN(parkingLength) || isNaN(parkingRW) || isNaN(parkingFee) || isNaN(parkingDays) ? "" : "$" + parkingSides + ' X ' + parkingLength + 'ft'  + ' X ' + parkingRW + 'ft' + ' X ' + parkingFee + ' X ' + parkingDays} ${isNaN(parkingSides) || isNaN(parkingLength) || isNaN(parkingRW) || isNaN(parkingFee) || isNaN(parkingDays) ? "" : "= $"} ${isNaN(parkingSides) || isNaN(parkingLength) || isNaN(parkingRW) || isNaN(parkingFee) || isNaN(parkingDays) ? "" : (parkingSides * (parkingLength / parkingRW) * parkingFee * parkingDays).toFixed(2)}`}`;
         
         detailsElementTraffic.innerText += `\n${isNaN(sidewalksSides) ? "" :`\nSidewalks Sides: ${sidewalksSides}`}`;
         detailsElementTraffic.innerText += `${isNaN(sidewalksLength) ? "" :`\nSidewalks Length: ${sidewalksLength}ft`}`;
         detailsElementTraffic.innerText += `${isNaN(sidewalksRW) ? "" :`\nSidewalks RW: ${sidewalksRW}ft`}`;
         detailsElementTraffic.innerText += `${isNaN(sidewalksFee) ? "" :`\nSidewalks Fee: $${sidewalksFee.toFixed(2)}`}`;
-        detailsElementTraffic.innerText += `${isNaN(sidewalkdays) ? "" :`\nSidewalks Days: ${sidewalkdays} Days`}`;
+        detailsElementTraffic.innerText += `${isNaN(sidewalkdays) ? "" :`\nSidewalks Days: ${sidewalkdays}`}`;
         detailsElementTraffic.innerText += `${isNaN(sidewalkReduce) ? "" :`\nSidewalks Reduction: ${sidewalkReduce}`}`;
         detailsElementTraffic.innerText += `${isNaN(sidewalksSides) || isNaN(sidewalksLength) || isNaN(sidewalksRW) || isNaN(sidewalksFee) || isNaN(sidewalkdays) || isNaN(sidewalkReduce) ? "" :`\n${isNaN(sidewalksSides) || isNaN(sidewalksLength) || isNaN(sidewalksRW) || isNaN(sidewalksFee) || isNaN(sidewalkdays) || isNaN(sidewalkReduce) ? "" : "$" + sidewalksSides + ' X ' + sidewalksLength + 'ft'  + ' X ' + sidewalksRW + 'ft' + ' X ' + sidewalksFee + ' X ' + sidewalkdays + ' X ' + sidewalkReduce} ${isNaN(sidewalksSides) || isNaN(sidewalksLength) || isNaN(sidewalksRW) || isNaN(sidewalksFee) || isNaN(sidewalkdays) || isNaN(sidewalkReduce) ? "" : "= $"} ${isNaN(sidewalksSides) || isNaN(sidewalksLength) || isNaN(sidewalksRW) || isNaN(sidewalksFee) || isNaN(sidewalkdays) || isNaN(sidewalkReduce) ? "" : (sidewalksSides * (sidewalksLength / sidewalksRW) * sidewalksFee * sidewalkdays * sidewalkReduce).toFixed(2)}`}`;
 
         detailsElementTraffic.innerText += `\n${isNaN(number) ? "" :`\nNumber of Meters: ${number}`}`;
-        detailsElementTraffic.innerText += `${isNaN(meterdays) ? "" :`\nMeter Days: ${meterdays} Days`}`;
+        detailsElementTraffic.innerText += `${isNaN(meterdays) ? "" :`\nMeter Days: ${meterdays}`}`;
         detailsElementTraffic.innerText += `${isNaN(meterscost) ? "" :`\nMeter Cost: $${meterscost.toFixed(2)}`}`;
-        detailsElementTraffic.innerText += `${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" :`\n${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" : "$" + number + ' X ' + meterdays + 'days'  + ' X ' + meterscost} ${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" : "= $"} ${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" : (number * meterdays * meterscost).toFixed(2)}`}`;
+        detailsElementTraffic.innerText += `${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" :`\n${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" : "$" + number + ' X ' + meterdays + ' days'  + ' X ' + meterscost} ${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" : "= $"} ${isNaN(number) || isNaN(meterdays) || isNaN(meterscost) ? "" : (number * meterdays * meterscost).toFixed(2)}`}`;
 
         detailsElementTraffic.innerText += `\n${isNaN(alleys) ? "" :`\nNumber of Alleys: ${alleys}`}`;
-        detailsElementTraffic.innerText += `${isNaN(alleydays) ? "" :`\nAlley Days: ${alleydays} Days`}`;
+        detailsElementTraffic.innerText += `${isNaN(alleydays) ? "" :`\nAlley Days: ${alleydays}`}`;
         detailsElementTraffic.innerText += `${isNaN(alleycost) ? "" :`\nAlley Cost: $${alleycost.toFixed(2)}`}`;
         detailsElementTraffic.innerText += `${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" :`\n${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" : "$" + alleys + ' X ' + alleydays + 'days'  + ' X ' + alleycost} ${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" : "= $"} ${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" : (alleys * alleydays * alleycost).toFixed(2)}`}`;
 
@@ -829,5 +830,3 @@ function showDetourTooltip() {
     var detourTooltip = document.getElementById('detour-tooltip');
     detourTooltip.style.visibility = 'visible';
 }
-
-
