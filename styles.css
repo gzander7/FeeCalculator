@@ -8,6 +8,41 @@ body {
     margin-left: 10px; 
 }
 
+
+input{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+input[type="text"], select {
+    width: 217px; 
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+select {
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('bitmap.png') no-repeat; 
+    background-size: 10px 10px;
+    background-position: 200px;
+}
+
+select option {
+    background-color: #222;
+    color: #fff;
+}
+
+
 .deg-fee-calculator {
     background-color: #333;
     color: #fff;
@@ -19,11 +54,22 @@ body {
     align-items: center;
 }
 
-.deg-fee-calculator label {
+.Trafic-Controll-calc{
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deg-fee-calculator label, .Trafic-Controll-calc {
     margin-bottom: 5px;
 }
 
-.deg-fee-calculator input, button, span {
+.deg-fee-calculator, .Trafic-Controll-calc, input, button, span {
     margin-bottom: 5px;
     background-color: #333;
     color: #fff;
@@ -37,6 +83,16 @@ body {
     margin-bottom: 5px;
 }
 
+button {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    align-self: center;
+}
+
 .street-age-container aside {
     position: absolute;
     left: 100%; 
@@ -44,7 +100,32 @@ body {
 }
 
 .length-container,
-.width-container {
+.width-container,
+.classification-container,
+.days-container,
+.detour-container,
+.unit-cost-container,
+.direction-of-travel-container,
+.driving-lanes-container,
+.reduce-container,
+.parking-lanes-container,
+.parking-length-container,
+.parking-RW-container,
+.parking-units-container,
+.permit-fee-container,
+.parking-days-container,
+.sidewalks-container,
+.sidewalk-length-container,
+.sidewalk-RW-container,
+.sidewalks-cost-container,
+.sidewalks-days-container,
+.sidewalksreduce-container,
+.meter-days-container,
+.number-meters-container,
+.cost-meters-container,
+.alleys-container,
+.alleys-days-container,
+.alleys-cost-container {
     display: flex;
     flex-direction: column;
 }
@@ -61,10 +142,9 @@ body {
     margin-bottom: 0;
 }
 
-#result {
+#result, #detour-result, #meter-result, #sidewalks-result, #parking-result, #alley-result, #total-result {
     margin-top: 10px;
-    color: rgb(255, 0, 0);
-    font-weight: bold;
+    color: #ff0000;
 }
 
 
@@ -97,4 +177,42 @@ body {
     .checkbox-container input[type="checkbox"] {
         margin-bottom: 0;
     }
+}
+
+.sidewalks-days-container {
+    position: relative;
+    display: flex;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px; 
+}
+
+.tooltip img {
+    width: 13px; 
+    height: 13px; 
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px; 
+    background-color: #555; 
+    color: #fff; 
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; 
+    left: 50%;
+    margin-left: -60px; 
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
