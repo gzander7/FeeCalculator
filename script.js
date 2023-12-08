@@ -830,3 +830,80 @@ function showDetourTooltip() {
     var detourTooltip = document.getElementById('detour-tooltip');
     detourTooltip.style.visibility = 'visible';
 }
+
+function darkmode() {
+    var element = document.body;
+    var length = document.getElementById('length');
+    var age = document.getElementById('age');
+    var width = document.getElementById('width');
+    var detorudays = document.getElementById('detour-days');
+    var detorucost = document.getElementById('detour-unit-cost');
+    var detorulength = document.getElementById('detour');
+    var parkinglanes = document.getElementById('parking-lanes');
+    var parkinglength = document.getElementById('parking-length');
+    var parkingRW = document.getElementById('parking-RW');
+    var parkingfee = document.getElementById('parking-fee');
+    var parkingdays = document.getElementById('parking-days');
+    var sidewalksides = document.getElementById('sidewalks-sides');
+    var sidewalkslength = document.getElementById('sidewalks-length');
+    var sidewalksRW = document.getElementById('sidewalks-RW');
+    var sidewalksfee = document.getElementById('sidewalks-cost');
+    var sidewalksdays = document.getElementById('sidewalks-days');
+    var numbermeters = document.getElementById('number-meters');
+    var costmeters = document.getElementById('cost-meters');
+    var meterdays = document.getElementById('meter-days');
+    var alleys = document.getElementById('alleys');
+    var alleydays = document.getElementById('alley-days');
+    var alleycost = document.getElementById('alley-cost');
+    var dropdown = document.getElementById("classification");
+    var dropdown2 = document.getElementById("total-lanes");
+    var dropdown3 = document.getElementById("lanes-closed");
+    var dropdown4 = document.getElementById("one-way-two-way");
+    var dropdown5 = document.getElementById("detour-reduce");
+    var dropdown6 = document.getElementById("sidewalks-reduce");
+    element.classList.toggle('dark-mode');
+    length.classList.toggle('dark-mode');
+    age.classList.toggle('dark-mode');
+    width.classList.toggle('dark-mode');
+    detorudays.classList.toggle('dark-mode');
+    detorucost.classList.toggle('dark-mode');
+    detorulength.classList.toggle('dark-mode');
+    parkinglanes.classList.toggle('dark-mode');
+    parkinglength.classList.toggle('dark-mode');
+    parkingRW.classList.toggle('dark-mode');
+    parkingfee.classList.toggle('dark-mode');
+    parkingdays.classList.toggle('dark-mode');
+    sidewalksides.classList.toggle('dark-mode');
+    sidewalkslength.classList.toggle('dark-mode');
+    sidewalksRW.classList.toggle('dark-mode');
+    sidewalksfee.classList.toggle('dark-mode');
+    sidewalksdays.classList.toggle('dark-mode');
+    numbermeters.classList.toggle('dark-mode');
+    costmeters.classList.toggle('dark-mode');
+    meterdays.classList.toggle('dark-mode');
+    alleys.classList.toggle('dark-mode');
+    alleydays.classList.toggle('dark-mode');
+    alleycost.classList.toggle('dark-mode');
+    dropdown.classList.toggle('dark-mode');
+    dropdown2.classList.toggle('dark-mode');
+    dropdown3.classList.toggle('dark-mode');
+    dropdown4.classList.toggle('dark-mode');
+    dropdown5.classList.toggle('dark-mode');
+    dropdown6.classList.toggle('dark-mode');
+    
+}
+
+function divdarkmode() {
+    var elements = document.body.querySelectorAll('body, .title-container, .Calculators, .deg-fee-calculator, .Trafic-Control-calc');
+    elements.forEach(function(element) {
+        element.classList.toggle('dark-mode');
+    });
+    var mode = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    document.querySelector('.title-container button').innerText = mode;
+}
+
+function themeswitch() {
+    darkmode();
+    divdarkmode();
+}
+
