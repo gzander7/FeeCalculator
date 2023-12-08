@@ -898,7 +898,7 @@ function divdarkmode() {
     elements.forEach(function(element) {
         element.classList.toggle('dark-mode');
     });
-    var mode = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    var mode = document.body.classList.contains('dark-mode') ? 'Dark Mode' : 'LightS Mode';
     document.querySelector('.title-container button').innerText = mode;
 }
 
