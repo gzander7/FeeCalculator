@@ -53,7 +53,7 @@ select option {
     align-items: center;
 }
 
-.Trafic-Controll-calc{
+.Trafic-Control-calc{
     background-color: #333;
     color: #fff;
     padding: 30px;
@@ -64,11 +64,11 @@ select option {
     align-items: center;
 }
 
-.deg-fee-calculator label, .Trafic-Controll-calc {
+.deg-fee-calculator label, .Trafic-Control-calc {
     margin-bottom: 5px;
 }
 
-.deg-fee-calculator, .Trafic-Controll-calc, input, button, span {
+.deg-fee-calculator, .Trafic-Control-calc, input, button, span {
     margin-bottom: 5px;
     background-color: #333;
     color: #fff;
