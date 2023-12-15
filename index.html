@@ -246,6 +246,63 @@
 
         <a href="https://library.municode.com/mo/kansas_city/codes/code_of_ordinances?nodeId=COORKAMIVOII_CH70TRVE_ARTIIADEN_DIV1GE_S70-39AUDICLSTSIOTTRAUESEMPARE" target="_blank">Click Here to see the Ordinance</a>
     </div>
+    <div class="streetplate"> 
+        <div class="street-plate-calculator">
+            <h1>Street Plate Calculator</h1>
+        <!-- Input fields -->
+        <div class="closed-container">
+            <label for="closed">Closed Road?</label>
+            <select id="closed" onchange="detourreduce()">
+                <option value="0" disabled selected>Closed?</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="permit-container">
+            <label for="permit">Have a Permit?</label>
+            <select id="permit" onchange="streetplatePermit()">
+                <option value="0" disabled selected>Yes or No?</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="embedded-container">
+            <label for="embbeded">Embedded?</label>
+            <select id="embedded" onchange="streetplateclosed()">
+                <option value="0" disabled selected>Yes or No?</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="street-plate-days-container">
+            <label for="street-plate-days">How Many Days?</label>
+            <input type="number" id="street-plate-days" placeholder="Days">
+        </div>
+
+        <div class="street-plate-length-container">
+            <label for="Length">Length In Feet</label>
+            <input type="number" id="street-plate-length-container" placeholder="Enter Length(ft)">
+        </div>
+
+        <div class="street-plate-width-container">
+            <label for="Width">Width In Feet</label>
+            <input type="number" id="street-plate-width-container" placeholder="Enter Width(ft)">
+        </div>
+
+        <!-- Button to reset -->
+        <button onclick="streetplatereset()">Reset</button>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="showAdvancedCalcplate" onclick="showAdvancedCalcplate()">
+            <label for="showAdvancedCalcplate">Show Advanced Calculation</label>
+        </div>
+
+        <!-- Display result -->
+        <p id="street-plate-result"></p>
+    </div>
 </div>
 <!-- JavaScript file -->
 <script src="script.js"></script>

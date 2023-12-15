@@ -160,6 +160,13 @@ document.getElementById('total-lanes').addEventListener('change', showAdvancedCa
 document.getElementById('lanes-closed').addEventListener('input', showAdvancedCalctraffic);
 document.getElementById('one-way-two-way').addEventListener('input', showAdvancedCalctraffic);
 
+document.getElementById('closed').addEventListener('input', showAdvancedCalcplate);
+document.getElementById('permit').addEventListener('input', showAdvancedCalcplate);
+document.getElementById('embedded').addEventListener('input', showAdvancedCalcplate);
+document.getElementById('street-plate-days').addEventListener('input', showAdvancedCalcplate);
+document.getElementById('street-plate-length-container').addEventListener('input', showAdvancedCalcplate);
+document.getElementById('street-plate-width-container').addEventListener('input', showAdvancedCalcplate);
+
 
 
 document.getElementById('age').addEventListener('input', function () {
@@ -301,6 +308,35 @@ document.getElementById('alley-cost').addEventListener('input', function () {
     alleycalc();
     totalTrafficControll()
 });
+
+document.getElementById('closed').addEventListener('input', function () {
+    streetplateclosed();
+    streetplatecalc();
+});
+
+document.getElementById('permit').addEventListener('input', function () {
+    upfrontfee()
+    streetplatecalc();
+});
+
+document.getElementById('embedded').addEventListener('input', function () {
+    streetplatecalc();
+});
+
+document.getElementById('street-plate-days').addEventListener('input', function () {
+    streetplatecalc();
+});
+
+document.getElementById('street-plate-length-container').addEventListener('input', function () {
+    streetplatecalc();
+});
+
+document.getElementById('street-plate-width-container').addEventListener('input', function () {
+    streetplatecalc();
+});
+
+
+
 
 function updateADT() {
     var classification = document.getElementById('classification').value;
@@ -446,9 +482,7 @@ function parkingreset() {
     document.getElementById('parking-days').value = '';
     document.getElementById('parking-RW').value = '20';
     document.getElementById('parking-fee').value = '0.63';
-
     document.getElementById('parking-result').innerText = '';
- 
     // Uncheck the advanced calculation checkbox
     document.getElementById('showAdvancedCalc').checked = false;
 }
@@ -528,7 +562,6 @@ function meterreset() {
     document.getElementById('meter-days').value = '';
     document.getElementById('number-meters').value = '';
     document.getElementById('cost-meters').value = '3.47';
-
     document.getElementById('meter-result').innerText = '';
 }
 
@@ -898,7 +931,7 @@ function divdarkmode() {
     elements.forEach(function(element) {
         element.classList.toggle('dark-mode');
     });
-    var mode = document.body.classList.contains('dark-mode') ? 'Dark Mode' : 'LightS Mode';
+    var mode = document.body.classList.contains('dark-mode') ? 'Dark Mode' : 'Light Mode';
     document.querySelector('.title-container button').innerText = mode;
 }
 
@@ -907,3 +940,161 @@ function themeswitch() {
     divdarkmode();
 }
 
+function streetplatedays() {
+    var streetPLateDays = document.getElementById('street-plate-days').value;
+    var ChargedDays = streetPLateDays - 21;
+    var embeddedfee = embedded();
+
+    if (embeddedfee == 0) {
+        ChargedDays = streetPLateDays;
+    } else {
+        if (ChargedDays < 0) {
+            ChargedDays = 0;
+        } else {
+            ChargedDays = ChargedDays;
+        }
+    }
+    return ChargedDays;
+}
+
+function streetplateclosed() {
+    var selectedOption = document.getElementById('closed').value;
+    var streetplateclosed;
+
+    switch (selectedOption) {
+        case '1':
+            streetplateclosed = 'Yes';
+            break;
+        case '2':
+            streetplateclosed = 'No';
+            break;
+    }
+    return streetplateclosed;
+}
+
+function embedded(){
+    var embedded = document.getElementById('embedded').value;
+    var embeddedfee;
+
+    switch (embedded) {
+        case '1':
+            embeddedfee = 1;
+            break;
+        case '2':
+            embeddedfee = 0;
+            break;
+    }
+
+    return embeddedfee;
+}
+
+function streetplatereset() {
+    document.getElementById('street-plate-days').value = '';
+    document.getElementById('street-plate-result').innerText = '';
+    document.getElementById('street-plate-length-container').value = '';
+    document.getElementById('street-plate-width-container').value = '';
+    var dropdown = document.getElementById("closed");
+    var dropdown2 = document.getElementById("permit");
+    var dropdown3 = document.getElementById("embedded");
+
+    dropdown.selectedIndex  = 0;
+    dropdown2.selectedIndex = 0;
+    dropdown3.selectedIndex = 0;
+}
+
+function streetplatePermit() {
+    var permitfee = document.getElementById('permit').value;
+    var permitfee;
+
+    switch (permitfee) {
+        case '1':
+            permitfee = 0.45;
+            break;
+        case '2':
+            permitfee = 0.90;
+            break;
+    }
+    return permitfee;
+}
+
+function upfrontfee() {
+    var upfrontfee = document.getElementById('permit').value;
+    var upfrontfee;
+
+    switch (upfrontfee) {
+        case '1':
+            upfrontfee = 29;
+            break;
+        case '2':
+            upfrontfee = 117;
+            break;
+    }
+    return upfrontfee;
+}
+
+function streetplatecalc() {
+    var streetPLateDays = document.getElementById('street-plate-days').value;
+    var length = document.getElementById('street-plate-length-container').value;
+    var width = document.getElementById('street-plate-width-container').value;
+    var ChargedDays = streetplatedays();
+    var streetclosed = streetplateclosed();
+    var embeddedfee = embedded();
+    var permitfee = streetplatePermit();
+    var upfront = upfrontfee();
+    var streetplatecost;
+
+    if (streetclosed == 'No') {
+        streetplatecost = (upfront + ((ChargedDays * permitfee) * (length * width)))
+    } else {
+        streetplatecost = 0;
+    }
+
+    console.log('streetplate variables:', upfront, streetPLateDays, permitfee, ChargedDays, streetclosed, embeddedfee);
+
+    
+    document.getElementById('street-plate-result').innerText = 'Street Plate Fee: $' + streetplatecost.toFixed(2);
+    
+}
+
+function showAdvancedCalcplate() {
+    var showDetailsCheckbox = document.getElementById('showAdvancedCalcplate');
+    var detailsElementPlate = document.getElementById('calculationDetailsPlate'); // Use a unique ID
+
+    // If the checkbox is checked, show the details
+    if (showDetailsCheckbox.checked) {
+        var streetPLateDays = document.getElementById('street-plate-days').value;
+        var length = document.getElementById('street-plate-length-container').value;
+        var width = document.getElementById('street-plate-width-container').value;
+        var ChargedDays = streetplatedays();
+        var streetclosed = streetplateclosed();
+        var permitfee = streetplatePermit();
+        var upfront = upfrontfee();
+        var streetplatecost = (upfront + ((ChargedDays * permitfee) * (length * width))) * streetclosed;
+
+        // If the details element doesn't exist, create it and append it
+        if (!detailsElementPlate) {
+            detailsElementPlate = document.createElement('div');
+            detailsElementPlate.id = 'calculationDetailsPlate';
+            var resultElementPlate = document.getElementById('street-plate-result');
+            resultElementPlate.insertAdjacentElement('afterend', detailsElementPlate);
+        }
+
+        if (streetclosed == 'Yes') {
+            detailsElementPlate.innerText = `Permit Fee: $${upfront}`;
+            detailsElementPlate.innerText += `${`\nCharged Days: 0`}`;
+            detailsElementPlate.innerText += `${`\nPlate Fee per SqFt: $0`}`;
+            detailsElementPlate.innerText += `${isNaN(length) ? "" :`\nLength: ${length}ft`}`;
+            detailsElementPlate.innerText += `${isNaN(width) ? "" :`\nWidth: ${width}ft`}`;
+            detailsElementPlate.innerText += `${`\nStreet Closed: ${streetclosed}`}`;
+            detailsElementPlate.innerText += `${`\n${isNaN(length) || isNaN(width)  ? "" : "$" + 0 + ' + ' + '(' + 0 + ' X ' + 0 + ' X ' + length + 'ft' + ' X ' + width + 'ft' + ')'} = $0`}`;
+        } else {
+            detailsElementPlate.innerText = `Permit Fee: $${upfront}`;
+            detailsElementPlate.innerText += `${isNaN(ChargedDays) ? "" :`\nCharged Days: ${ChargedDays}`}`;
+            detailsElementPlate.innerText += `${isNaN(permitfee) ? "" :`\nPlate Fee per SqFt: $${permitfee}`}`;
+            detailsElementPlate.innerText += `${isNaN(length) ? "" :`\nLength: ${length}ft`}`;
+            detailsElementPlate.innerText += `${isNaN(width) ? "" :`\nWidth: ${width}ft`}`;
+            detailsElementPlate.innerText += `${`\nStreet Closed: ${streetclosed}`}`;
+            detailsElementPlate.innerText += `${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width) ? "" :`\n${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width)  ? "" : "$" + upfront + ' + ' + '(' + ChargedDays + ' X ' + permitfee + ' X ' + length + 'ft' + ' X ' + width + 'ft' + ')'} ${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width) ? "" : "= $"} ${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width) ? "" : (upfront + ((ChargedDays * permitfee) * (length * width))).toFixed(2)}`}`;
+        }
+    }
+}

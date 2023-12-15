@@ -9,7 +9,7 @@ body {
 }
 
 .title-container button {
-    margin-left: 1150px; 
+    margin-left: 1550px ; 
     background-color: #333;
     color: #fff;
     border: 1px solid #fff;
@@ -74,11 +74,22 @@ select option {
     align-items: center;
 }
 
-.deg-fee-calculator label, .Trafic-Control-calc {
+.street-plate-calculator {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(54, 97, 198);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deg-fee-calculator label, .Trafic-Control-calc, .street-plate-calculator {
     margin-bottom: 5px;
 }
 
-.deg-fee-calculator, .Trafic-Control-calc, input, button, span {
+.deg-fee-calculator, .street-plate-calculator, .Trafic-Control-calc, input, button, span {
     margin-bottom: 5px;
     background-color: #333;
     color: #fff;
@@ -134,7 +145,13 @@ button {
 .cost-meters-container,
 .alleys-container,
 .alleys-days-container,
-.alleys-cost-container {
+.alleys-cost-container,
+.street-plate-length-container,
+.street-plate-width-container,
+.street-plate-days-container,
+.embedded-container,
+.closed-container,
+.permit-container {
     display: flex;
     flex-direction: column;
 }
@@ -151,7 +168,7 @@ button {
     margin-bottom: 0;
 }
 
-#result, #detour-result, #meter-result, #sidewalks-result, #parking-result, #alley-result, #total-result {
+#result, #detour-result, #meter-result, #sidewalks-result, #parking-result, #alley-result, #total-result, #street-plate-result {
     margin-top: 10px;
     color: #ff0000;
 }
