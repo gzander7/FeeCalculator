@@ -173,38 +173,6 @@ button {
     color: #ff0000;
 }
 
-
-
-@media only screen and (max-width: 600px) {
-    .deg-fee-calculator {
-        padding: 10px;
-    }
-
-    .deg-fee-calculator label,
-    .deg-fee-calculator input {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .deg-fee-calculator button {
-        margin-top: 10px;
-    }
-
-    .length-container,
-    .width-container,
-    .checkbox-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .length-container,
-    .width-container input[type="checkbox"],
-    .checkbox-container input[type="checkbox"] {
-        margin-bottom: 0;
-    }
-}
-
 .sidewalks-days-container {
     position: relative;
     display: flex;
@@ -344,6 +312,6 @@ a:active {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out;
+    transition: max-height 0.9s ease-out;
     background-color: #222;
 }
