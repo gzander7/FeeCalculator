@@ -10,298 +10,302 @@
     <div class="title-container">
         <h1>Fee Calculator <button onclick="themeswitch()">Light Mode</button></h1>
     </div>
-    <div class="Calculators"> 
-        <div class="deg-fee-calculator">
-            <h1>Degradation Fee Calculator</h1>
-        <!-- Input fields -->
-        <div class="street-age-container">
-            <label for="age">Street Age</label>
-            <div class="age-addon">
-                <input type="number" id="age" placeholder="Enter Street Age" oninput="displayStreetAgeMultiplyer()">
-                <aside id="streetAgeDisplay"></aside>
+        <button class="collapsible" onclick="collapse()">Degradation Fee Calculator</button>
+        <div class="content">
+            <div class="deg-fee-calculator">
+            <!-- Input fields -->
+            <div class="street-age-container">
+                <label for="age">Street Age</label>
+                <div class="age-addon">
+                    <input type="number" id="age" placeholder="Enter Street Age" oninput="displayStreetAgeMultiplyer()">
+                    <aside id="streetAgeDisplay"></aside>
+                </div>
+            </div>
+    
+            <div class="length-container">
+                <label for="Length">Length In Feet</label>
+                <input type="number" id="length" placeholder="Enter Length(ft)">
+            </div>
+    
+            <div class="width-container">
+                <label for="Width">Width In Feet</label>
+                <input type="number" id="width" placeholder="Enter Width(ft)">
+            </div>
+    
+            <!-- Button to reset -->
+            <button onclick="reset()">Reset</button>
+    
+            <div class="checkbox-container">
+                <input type="checkbox" id="showAdvancedCalc" onclick="showAdvancedCalc()">
+                <label for="showAdvancedCalc">Show Advanced Calculation</label>
+            </div>
+    
+            <!-- Display result -->
+            <p id="result"></p>
+        </div>
+        </div>
+        <button class="collapsible">Trafic Control Fee Calculator</button>
+        <div class="content">
+            <div class="Trafic-Control-calc">
+                <h3>Detour Fee</h3>
+                <div class="classification-container">Classification</label>
+                    <select id="classification" onchange="updateADT()">
+                        <option value="0" disabled selected>Select Classification</option>
+                        <option value="1">Expressways</option>
+                        <option value="2">Primary Arterials</option>
+                        <option value="3">Secondary Arterials</option>
+                        <option value="4">Other Streets</option>
+                    </select>
+                </div>
+        
+                <div class="days-container">
+                    <label for="Days">Days</label>
+                    <input type="number" id="detour-days" placeholder="Enter Days">
+                </div>
+        
+                <div class="detour-container">
+                    <label for="Detour">Detour</label>
+                    <input type="number" id="detour" placeholder="Enter Detour Distance">
+                </div>
+        
+                <div class="unit-cost-container">
+                    <label for="unit-cost">Unit Cost</label>
+                    <input type="number" id="detour-unit-cost" placeholder="Enter Unit Cost" value="0.17">
+                </div>
+        
+                <div class="classification-container">One Way Two Way</label>
+                    <select id="one-way-two-way" onchange="onewaytwoway()">
+                        <option value="0" disabled selected>One Way or Two Way</option>
+                        <option value="1">One Way</option>
+                        <option value="2">Two Way</option>
+                    </select>
+                </div>
+        
+                <div class="classification-container">Total Lanes</label>
+                    <select id="total-lanes" onchange="totalLanes()">
+                        <option value="0" disabled selected>Select Total Lanes</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+        
+                <div class="classification-container">Closed Lanes</label>
+                    <select id="lanes-closed" onchange="lanesclosed()">
+                        <option value="0" disabled selected>Amount of Lanes closed</option>
+                    </select>
+                </div>
+        
+                <div class="classification-container">
+                    <label for="detour-reduce">Reduce <div class="tooltip" id="tooltip-sidewalks-days">
+                        <img src="tooltip.png" alt="Question Mark">
+                        <span class="tooltiptext"><p>50% reduction for lane closures between 9:00 a.m. and 4:00 p.m. only<p>
+                            <p>70% reduction for lane closures between 6:00 p.m. and 7:00 a.m only<p>
+                            <p>70% reduction for closures limited to Saturday, Sunday or a holiday<p>
+                        </span>
+                    </div></label>
+                    <select id="detour-reduce" onchange="detourreduce()">
+                        <option value="0" disabled selected>Select Reduction</option>
+                        <option value="1">No Reduction</option>
+                        <option value="2">50% Reduction</option>
+                        <option value="3">70% Reduction</option>
+                    </select>
+                </div>
+        
+                <button onclick="detourreset()">Reset Detour Fee</button>
+        
+                <p id="detour-result"></p>
+        
+                <h3>Parking Lanes Fee</h3>
+        
+                <div class="parking-lanes-container">
+                    <label for="parking-lanes">Enter Number of Sides</label>
+                    <input type="number" id="parking-lanes" placeholder="Enter Traffic Control">
+                </div>
+        
+                <div class="parking-length-container">
+                    <label for="parking-length">Parking Length</label>
+                    <input type="number" id="parking-length" placeholder="Enter Units">
+                </div>
+        
+                <div class="parking-RW-container">
+                    <label for="parking-RW">R/W Section</label>
+                    <input type="number" id="parking-RW" placeholder="Enter Units" value="20">
+                </div>
+        
+                <div class="permit-fee-container">
+                    <label for="permit-fee">Permit Fee</label>
+                    <input type="number" id="parking-fee" placeholder="Enter Fee" value="0.63">
+                </div>
+        
+                <div class="parking-days-container">
+                    <label for="parking-days">Days</label>
+                    <input type="number" id="parking-days" placeholder="Enter Days">
+                </div>
+        
+                <button onclick="parkingreset()">Reset Parking Fee</button>
+        
+                <p id="parking-result"></p>
+        
+                <h3>Sidewalks Fee</h3>
+        
+                <div class="sidewalks-container">
+                    <label for="side-walks">Enter Number of Sides</label>
+                    <input type="number" id="sidewalks-sides" placeholder="Enter Traffic Control">
+                </div>
+                
+                <div class="sidewalk-length-container">
+                    <label for="parking-length">Parking Length</label>
+                    <input type="number" id="sidewalks-length" placeholder="Enter Units">
+                </div>
+        
+                <div class="sidewalk-RW-container">
+                    <label for="parking-RW">R/W Section</label>
+                    <input type="number" id="sidewalks-RW" placeholder="Enter Units" value="20">
+                </div>
+        
+                <div class="sidewalks-cost-container">
+                    <label for="permit-fee">Sidewalks Cost</label>
+                    <input type="number" id="sidewalks-cost" placeholder="Enter Cost" value="0.67">
+                </div>
+        
+                <div class="sidewalks-days-container">
+                    <label for="sidewalks-days">Days</label>
+                    <input type="number" id="sidewalks-days" placeholder="Enter Days">
+                </div>
+                
+        
+                <div class="classification-container">
+                    <label for="sidewalks-reduce">Reduce <div class="tooltip" id="tooltip-sidewalks-days">
+                        <img src="tooltip.png" alt="Question Mark">
+                        <span class="tooltiptext"> <p>50% reduction If sidewalk/non-roadway area is closed in conjunction with the adjacent lane closure<p></span>
+                    </div></label>
+                    <select id="sidewalks-reduce" onchange="sidewalkreduce()">
+                        <option value="0" disabled selected>Select Reduction</option>
+                        <option value="1">No Reduction</option>
+                        <option value="2">50% Reduction</option>
+                    </select>
+                </div>
+        
+                <button onclick="sidewalkreset()">Reset Sidewalks Fee</button>
+        
+                <p id="sidewalks-result"></p>
+        
+                <h3>Meter Fee</h3>
+        
+                <div class="meter-days-container">
+                    <label for="meter-days">Meter Days</label>
+                    <input type="number" id="meter-days" placeholder="Enter Days">
+                </div>
+        
+                <div class="number-meters-container">
+                    <label for="meter-units">Meter Units</label>
+                    <input type="number" id="number-meters" placeholder="Enter Units">
+                </div>
+        
+                <div class="cost-meters-container">
+                    <label for="cost-meters">Cost Per Meter</label>
+                    <input type="number" id="cost-meters" placeholder="Enter Cost" value="3.47">
+                </div>
+                <!-- Button to reset -->
+                <button onclick="meterreset()">Reset Meter Fee</button>
+        
+                <p id="meter-result"></p>
+        
+                <h3>Alley Fee</h3>
+        
+                <div class="alleys-container">
+                    <label for="alleys">Number Of Alleys</label>
+                    <input type="number" id="alleys" placeholder="Enter Number of Alleys">
+                </div>
+        
+                <div class="alleys-days-container">
+                    <label for="alleys-days">Days</label>
+                    <input type="number" id="alley-days" placeholder="Enter Days">
+                </div>
+        
+                <div class="alleys-cost-container">
+                    <label for="alleys-cost">Cost Per Alley</label>
+                    <input type="number" id="alley-cost" placeholder="Enter Cost" value="1.74">
+                </div>
+        
+                <button onclick="alleyreset()">Reset Alley Fee</button>
+        
+                <p id="alley-result"></p>
+        
+                <button onclick="resetAll()">Reset All</button>
+        
+                <div class="traffic-checkbox-container">
+                    <input type="checkbox" id="showAdvancedCalctraffic" onclick="showAdvancedCalctraffic()">
+                    <label for="showAdvancedCalctraffic">Show Advanced Calculation</label>
+                </div>        
+        
+                <p id="total-result"></p>
+        
+                <a href="https://library.municode.com/mo/kansas_city/codes/code_of_ordinances?nodeId=COORKAMIVOII_CH70TRVE_ARTIIADEN_DIV1GE_S70-39AUDICLSTSIOTTRAUESEMPARE" target="_blank">Click Here to see the Ordinance</a>
             </div>
         </div>
-
-        <div class="length-container">
-            <label for="Length">Length In Feet</label>
-            <input type="number" id="length" placeholder="Enter Length(ft)">
-        </div>
-
-        <div class="width-container">
-            <label for="Width">Width In Feet</label>
-            <input type="number" id="width" placeholder="Enter Width(ft)">
-        </div>
-
-        <!-- Button to reset -->
-        <button onclick="reset()">Reset</button>
-
-        <div class="checkbox-container">
-            <input type="checkbox" id="showAdvancedCalc" onclick="showAdvancedCalc()">
-            <label for="showAdvancedCalc">Show Advanced Calculation</label>
-        </div>
-
-        <!-- Display result -->
-        <p id="result"></p>
-    </div>
-
-    <div class="Trafic-Control-calc">
-        <h1>Trafic Control Fee Calculator</h1>
-
-        <h3>Detour Fee</h3>
-        <div class="classification-container">Classification</label>
-            <select id="classification" onchange="updateADT()">
-                <option value="0" disabled selected>Select Classification</option>
-                <option value="1">Expressways</option>
-                <option value="2">Primary Arterials</option>
-                <option value="3">Secondary Arterials</option>
-                <option value="4">Other Streets</option>
-            </select>
-        </div>
-
-        <div class="days-container">
-            <label for="Days">Days</label>
-            <input type="number" id="detour-days" placeholder="Enter Days">
-        </div>
-
-        <div class="detour-container">
-            <label for="Detour">Detour</label>
-            <input type="number" id="detour" placeholder="Enter Detour Distance">
-        </div>
-
-        <div class="unit-cost-container">
-            <label for="unit-cost">Unit Cost</label>
-            <input type="number" id="detour-unit-cost" placeholder="Enter Unit Cost" value="0.17">
-        </div>
-
-        <div class="classification-container">One Way Two Way</label>
-            <select id="one-way-two-way" onchange="onewaytwoway()">
-                <option value="0" disabled selected>One Way or Two Way</option>
-                <option value="1">One Way</option>
-                <option value="2">Two Way</option>
-            </select>
-        </div>
-
-        <div class="classification-container">Total Lanes</label>
-            <select id="total-lanes" onchange="totalLanes()">
-                <option value="0" disabled selected>Select Total Lanes</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
-
-        <div class="classification-container">Closed Lanes</label>
-            <select id="lanes-closed" onchange="lanesclosed()">
-                <option value="0" disabled selected>Amount of Lanes closed</option>
-            </select>
-        </div>
-
-        <div class="classification-container">
-            <label for="detour-reduce">Reduce <div class="tooltip" id="tooltip-sidewalks-days">
-                <img src="tooltip.png" alt="Question Mark">
-                <span class="tooltiptext"><p>50% reduction for lane closures between 9:00 a.m. and 4:00 p.m. only<p>
-                    <p>70% reduction for lane closures between 6:00 p.m. and 7:00 a.m only<p>
-                    <p>70% reduction for closures limited to Saturday, Sunday or a holiday<p>
-                </span>
-            </div></label>
-            <select id="detour-reduce" onchange="detourreduce()">
-                <option value="0" disabled selected>Select Reduction</option>
-                <option value="1">No Reduction</option>
-                <option value="2">50% Reduction</option>
-                <option value="3">70% Reduction</option>
-            </select>
-        </div>
-
-        <button onclick="detourreset()">Reset Detour Fee</button>
-
-        <p id="detour-result"></p>
-
-        <h3>Parking Lanes Fee</h3>
-
-        <div class="parking-lanes-container">
-            <label for="parking-lanes">Enter Number of Sides</label>
-            <input type="number" id="parking-lanes" placeholder="Enter Traffic Control">
-        </div>
-
-        <div class="parking-length-container">
-            <label for="parking-length">Parking Length</label>
-            <input type="number" id="parking-length" placeholder="Enter Units">
-        </div>
-
-        <div class="parking-RW-container">
-            <label for="parking-RW">R/W Section</label>
-            <input type="number" id="parking-RW" placeholder="Enter Units" value="20">
-        </div>
-
-        <div class="permit-fee-container">
-            <label for="permit-fee">Permit Fee</label>
-            <input type="number" id="parking-fee" placeholder="Enter Fee" value="0.63">
-        </div>
-
-        <div class="parking-days-container">
-            <label for="parking-days">Days</label>
-            <input type="number" id="parking-days" placeholder="Enter Days">
-        </div>
-
-        <button onclick="parkingreset()">Reset Parking Fee</button>
-
-        <p id="parking-result"></p>
-
-        <h3>Sidewalks Fee</h3>
-
-        <div class="sidewalks-container">
-            <label for="side-walks">Enter Number of Sides</label>
-            <input type="number" id="sidewalks-sides" placeholder="Enter Traffic Control">
-        </div>
+        <button class="collapsible">Street Plate Calculator</button>
+        <div class="content">
+            <div class="streetplate"> 
+                <div class="street-plate-calculator">
+                <!-- Input fields -->
+                <div class="closed-container">
+                    <label for="closed">Closed Road?</label>
+                    <select id="closed" onchange="detourreduce()">
+                        <option value="0" disabled selected>Closed?</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
         
-        <div class="sidewalk-length-container">
-            <label for="parking-length">Parking Length</label>
-            <input type="number" id="sidewalks-length" placeholder="Enter Units">
-        </div>
-
-        <div class="sidewalk-RW-container">
-            <label for="parking-RW">R/W Section</label>
-            <input type="number" id="sidewalks-RW" placeholder="Enter Units" value="20">
-        </div>
-
-        <div class="sidewalks-cost-container">
-            <label for="permit-fee">Sidewalks Cost</label>
-            <input type="number" id="sidewalks-cost" placeholder="Enter Cost" value="0.67">
-        </div>
-
-        <div class="sidewalks-days-container">
-            <label for="sidewalks-days">Days</label>
-            <input type="number" id="sidewalks-days" placeholder="Enter Days">
-        </div>
+                <div class="permit-container">
+                    <label for="permit">Have a Permit?</label>
+                    <select id="permit" onchange="streetplatePermit()">
+                        <option value="0" disabled selected>Yes or No?</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
         
-
-        <div class="classification-container">
-            <label for="sidewalks-reduce">Reduce <div class="tooltip" id="tooltip-sidewalks-days">
-                <img src="tooltip.png" alt="Question Mark">
-                <span class="tooltiptext"> <p>50% reduction If sidewalk/non-roadway area is closed in conjunction with the adjacent lane closure<p></span>
-            </div></label>
-            <select id="sidewalks-reduce" onchange="sidewalkreduce()">
-                <option value="0" disabled selected>Select Reduction</option>
-                <option value="1">No Reduction</option>
-                <option value="2">50% Reduction</option>
-            </select>
+                <div class="embedded-container">
+                    <label for="embbeded">Embedded?</label>
+                    <select id="embedded" onchange="streetplateclosed()">
+                        <option value="0" disabled selected>Yes or No?</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+        
+                <div class="street-plate-days-container">
+                    <label for="street-plate-days">How Many Days?</label>
+                    <input type="number" id="street-plate-days" placeholder="Days">
+                </div>
+        
+                <div class="street-plate-length-container">
+                    <label for="Length">Length In Feet</label>
+                    <input type="number" id="street-plate-length-container" placeholder="Enter Length(ft)">
+                </div>
+        
+                <div class="street-plate-width-container">
+                    <label for="Width">Width In Feet</label>
+                    <input type="number" id="street-plate-width-container" placeholder="Enter Width(ft)">
+                </div>
+        
+                <!-- Button to reset -->
+                <button onclick="streetplatereset()">Reset</button>
+        
+                <div class="checkbox-container">
+                    <input type="checkbox" id="showAdvancedCalcplate" onclick="showAdvancedCalcplate()">
+                    <label for="showAdvancedCalcplate">Show Advanced Calculation</label>
+                </div>
+        
+                <!-- Display result -->
+                <p id="street-plate-result"></p>
+        
         </div>
-
-        <button onclick="sidewalkreset()">Reset Sidewalks Fee</button>
-
-        <p id="sidewalks-result"></p>
-
-        <h3>Meter Fee</h3>
-
-        <div class="meter-days-container">
-            <label for="meter-days">Meter Days</label>
-            <input type="number" id="meter-days" placeholder="Enter Days">
-        </div>
-
-        <div class="number-meters-container">
-            <label for="meter-units">Meter Units</label>
-            <input type="number" id="number-meters" placeholder="Enter Units">
-        </div>
-
-        <div class="cost-meters-container">
-            <label for="cost-meters">Cost Per Meter</label>
-            <input type="number" id="cost-meters" placeholder="Enter Cost" value="3.47">
-        </div>
-        <!-- Button to reset -->
-        <button onclick="meterreset()">Reset Meter Fee</button>
-
-        <p id="meter-result"></p>
-
-        <h3>Alley Fee</h3>
-
-        <div class="alleys-container">
-            <label for="alleys">Number Of Alleys</label>
-            <input type="number" id="alleys" placeholder="Enter Number of Alleys">
-        </div>
-
-        <div class="alleys-days-container">
-            <label for="alleys-days">Days</label>
-            <input type="number" id="alley-days" placeholder="Enter Days">
-        </div>
-
-        <div class="alleys-cost-container">
-            <label for="alleys-cost">Cost Per Alley</label>
-            <input type="number" id="alley-cost" placeholder="Enter Cost" value="1.74">
-        </div>
-
-        <button onclick="alleyreset()">Reset Alley Fee</button>
-
-        <p id="alley-result"></p>
-
-        <button onclick="resetAll()">Reset All</button>
-
-        <div class="traffic-checkbox-container">
-            <input type="checkbox" id="showAdvancedCalctraffic" onclick="showAdvancedCalctraffic()">
-            <label for="showAdvancedCalctraffic">Show Advanced Calculation</label>
-        </div>        
-
-        <p id="total-result"></p>
-
-        <a href="https://library.municode.com/mo/kansas_city/codes/code_of_ordinances?nodeId=COORKAMIVOII_CH70TRVE_ARTIIADEN_DIV1GE_S70-39AUDICLSTSIOTTRAUESEMPARE" target="_blank">Click Here to see the Ordinance</a>
-    </div>
-    <div class="streetplate"> 
-        <div class="street-plate-calculator">
-            <h1>Street Plate Calculator</h1>
-        <!-- Input fields -->
-        <div class="closed-container">
-            <label for="closed">Closed Road?</label>
-            <select id="closed" onchange="detourreduce()">
-                <option value="0" disabled selected>Closed?</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
-            </select>
-        </div>
-
-        <div class="permit-container">
-            <label for="permit">Have a Permit?</label>
-            <select id="permit" onchange="streetplatePermit()">
-                <option value="0" disabled selected>Yes or No?</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
-            </select>
-        </div>
-
-        <div class="embedded-container">
-            <label for="embbeded">Embedded?</label>
-            <select id="embedded" onchange="streetplateclosed()">
-                <option value="0" disabled selected>Yes or No?</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
-            </select>
-        </div>
-
-        <div class="street-plate-days-container">
-            <label for="street-plate-days">How Many Days?</label>
-            <input type="number" id="street-plate-days" placeholder="Days">
-        </div>
-
-        <div class="street-plate-length-container">
-            <label for="Length">Length In Feet</label>
-            <input type="number" id="street-plate-length-container" placeholder="Enter Length(ft)">
-        </div>
-
-        <div class="street-plate-width-container">
-            <label for="Width">Width In Feet</label>
-            <input type="number" id="street-plate-width-container" placeholder="Enter Width(ft)">
-        </div>
-
-        <!-- Button to reset -->
-        <button onclick="streetplatereset()">Reset</button>
-
-        <div class="checkbox-container">
-            <input type="checkbox" id="showAdvancedCalcplate" onclick="showAdvancedCalcplate()">
-            <label for="showAdvancedCalcplate">Show Advanced Calculation</label>
-        </div>
-
-        <!-- Display result -->
-        <p id="street-plate-result"></p>
     </div>
 </div>
 <!-- JavaScript file -->

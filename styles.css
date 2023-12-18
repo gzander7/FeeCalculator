@@ -9,7 +9,7 @@ body {
 }
 
 .title-container button {
-    margin-left: 1550px ; 
+    margin-left: 75%; 
     background-color: #333;
     color: #fff;
     border: 1px solid #fff;
@@ -56,8 +56,8 @@ select option {
     background-color: #333;
     color: #fff;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgb(54, 97, 198);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgb(54, 97, 198);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,8 +67,8 @@ select option {
     background-color: #333;
     color: #fff;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgb(54, 97, 198);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgb(54, 97, 198);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,8 +78,8 @@ select option {
     background-color: #333;
     color: #fff;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgb(54, 97, 198);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgb(54, 97, 198);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,4 +295,55 @@ a:active {
 .title-container.dark-mode button {
     background-color: #d8d8d89e;
     color: #000000;
+}
+
+.street-plate-calculator.dark-mode button {
+    background-color: #d8d8d89e;
+    color: #000000;
+}
+
+.street-plate-calculator.dark-mode {
+    background-color: #EAEAEA;
+    color: #000000;
+}
+
+.content.dark-mode {
+    background-color: white;
+    color: #000000;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+  
+.active, .collapsible:hover {
+    background-color: #555;
+}
+  
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: "\2212";
+}
+  
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #222;
 }

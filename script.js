@@ -172,16 +172,19 @@ document.getElementById('street-plate-width-container').addEventListener('input'
 document.getElementById('age').addEventListener('input', function () {
     calculateCost(); 
     showAdvancedCalc();
+    updatecontentheight();
 });
 
 document.getElementById('length').addEventListener('input', function () {
     calculateCost(); 
     showAdvancedCalc();
+    updatecontentheight();
 });
 
 document.getElementById('width').addEventListener('input', function () {
     calculateCost(); 
     showAdvancedCalc();
+    updatecontentheight();
 });
 
 document.getElementById('classification').addEventListener('change', function () {
@@ -888,12 +891,19 @@ function darkmode() {
     var alleys = document.getElementById('alleys');
     var alleydays = document.getElementById('alley-days');
     var alleycost = document.getElementById('alley-cost');
+    var streetPlateDays = document.getElementById('street-plate-days');
+    var streetPlateLength = document.getElementById('street-plate-length-container');
+    var streetPlateWidth = document.getElementById('street-plate-width-container');
     var dropdown = document.getElementById("classification");
     var dropdown2 = document.getElementById("total-lanes");
     var dropdown3 = document.getElementById("lanes-closed");
     var dropdown4 = document.getElementById("one-way-two-way");
     var dropdown5 = document.getElementById("detour-reduce");
     var dropdown6 = document.getElementById("sidewalks-reduce");
+    var dropdown7 = document.getElementById("closed");
+    var dropdown8 = document.getElementById("permit");
+    var dropdown9 = document.getElementById("embedded");
+
     element.classList.toggle('dark-mode');
     length.classList.toggle('dark-mode');
     age.classList.toggle('dark-mode');
@@ -917,17 +927,22 @@ function darkmode() {
     alleys.classList.toggle('dark-mode');
     alleydays.classList.toggle('dark-mode');
     alleycost.classList.toggle('dark-mode');
+    streetPlateDays.classList.toggle('dark-mode');
+    streetPlateLength.classList.toggle('dark-mode');
+    streetPlateWidth.classList.toggle('dark-mode');
     dropdown.classList.toggle('dark-mode');
     dropdown2.classList.toggle('dark-mode');
     dropdown3.classList.toggle('dark-mode');
     dropdown4.classList.toggle('dark-mode');
     dropdown5.classList.toggle('dark-mode');
     dropdown6.classList.toggle('dark-mode');
-    
+    dropdown7.classList.toggle('dark-mode');
+    dropdown8.classList.toggle('dark-mode');
+    dropdown9.classList.toggle('dark-mode');
 }
 
 function divdarkmode() {
-    var elements = document.body.querySelectorAll('body, .title-container, .Calculators, .deg-fee-calculator, .Trafic-Control-calc');
+    var elements = document.body.querySelectorAll('body, .title-container, .Calculators, .deg-fee-calculator, .Trafic-Control-calc, .content, .street-plate-calculator');
     elements.forEach(function(element) {
         element.classList.toggle('dark-mode');
     });
@@ -1062,14 +1077,12 @@ function showAdvancedCalcplate() {
 
     // If the checkbox is checked, show the details
     if (showDetailsCheckbox.checked) {
-        var streetPLateDays = document.getElementById('street-plate-days').value;
         var length = document.getElementById('street-plate-length-container').value;
         var width = document.getElementById('street-plate-width-container').value;
         var ChargedDays = streetplatedays();
         var streetclosed = streetplateclosed();
         var permitfee = streetplatePermit();
         var upfront = upfrontfee();
-        var streetplatecost = (upfront + ((ChargedDays * permitfee) * (length * width))) * streetclosed;
 
         // If the details element doesn't exist, create it and append it
         if (!detailsElementPlate) {
@@ -1096,5 +1109,34 @@ function showAdvancedCalcplate() {
             detailsElementPlate.innerText += `${`\nStreet Closed: ${streetclosed}`}`;
             detailsElementPlate.innerText += `${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width) ? "" :`\n${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width)  ? "" : "$" + upfront + ' + ' + '(' + ChargedDays + ' X ' + permitfee + ' X ' + length + 'ft' + ' X ' + width + 'ft' + ')'} ${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width) ? "" : "= $"} ${isNaN(ChargedDays) || isNaN(permitfee) || isNaN(length) || isNaN(width) ? "" : (upfront + ((ChargedDays * permitfee) * (length * width))).toFixed(2)}`}`;
         }
+    } else {
+        // If the checkbox is unchecked, remove the details element if it exists
+        if (detailsElementPlate) {
+            detailsElementPlate.remove();
+        }
+    
     }
+}
+
+function updatecontentheight() {
+    if (content.style.maxHeight){
+        content.style.maxHeight = null;
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+    } 
+}
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + 1000 + "px";
+    } 
+  });
 }
