@@ -953,6 +953,9 @@ function divdarkmode() {
 function themeswitch() {
     darkmode();
     divdarkmode();
+
+    var mode = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+    localStorage.setItem('theme', mode);
 }
 
 function streetplatedays() {
@@ -1144,15 +1147,21 @@ for (i = 0; i < coll.length; i++) {
 }
 
 window.onload = function() {
-  for (i = 0; i < coll.length; i++) {
-    var state = localStorage.getItem(coll[i].id);
-    var content = coll[i].nextElementSibling;
-    if (state === 'expanded') {
-      coll[i].classList.add("active");
-      content.style.maxHeight = content.scrollHeight + 1000 + "px";
-    } else {
-      coll[i].classList.remove("active");
-      content.style.maxHeight = null;
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark-mode') {
+        themeswitch();
     }
-  }
+
+
+    for (i = 0; i < coll.length; i++) {
+        var state = localStorage.getItem(coll[i].id);
+        var content = coll[i].nextElementSibling;
+        if (state === 'expanded') {
+            coll[i].classList.add("active");
+            content.style.maxHeight = content.scrollHeight + 1000 + "px";
+        } else {
+            coll[i].classList.remove("active");
+            content.style.maxHeight = null;
+        }
+    }
 };
