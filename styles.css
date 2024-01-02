@@ -10,6 +10,26 @@ body {
     align-items: center;
 }
 
+.title-container .logo {
+    width: 100px;
+    height: 100px;
+    background-image: url('KC_publicworkslogo_v_4c_reversed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+body.dark-mode .title-container .logo {
+    background-image: url('KC_publicworkslogo_v_4c.png');
+    width: 100px;
+    height: 100px;
+}
+
+.title-container .logo {
+    background-image: url('KC_publicworkslogo_v_4c_reversed.png');
+    width: 100px;
+    height: 100px;
+}
+
 .title-container h1 {
     margin-right: 20px; 
 }
