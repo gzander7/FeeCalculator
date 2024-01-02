@@ -5,11 +5,16 @@ body {
 }
 
 .title-container {
-    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-container h1 {
+    margin-right: 20px; 
 }
 
 .title-container button {
-    margin-left: 75%; 
     background-color: #333;
     color: #fff;
     border: 1px solid #fff;
