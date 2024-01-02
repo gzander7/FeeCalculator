@@ -1135,8 +1135,24 @@ for (i = 0; i < coll.length; i++) {
     var content = this.nextElementSibling;
     if (content.style.maxHeight){
       content.style.maxHeight = null;
+      localStorage.setItem(this.id, 'collapsed');
     } else {
       content.style.maxHeight = content.scrollHeight + 1000 + "px";
+      localStorage.setItem(this.id, 'expanded');
     } 
   });
 }
+
+window.onload = function() {
+  for (i = 0; i < coll.length; i++) {
+    var state = localStorage.getItem(coll[i].id);
+    var content = coll[i].nextElementSibling;
+    if (state === 'expanded') {
+      coll[i].classList.add("active");
+      content.style.maxHeight = content.scrollHeight + 1000 + "px";
+    } else {
+      coll[i].classList.remove("active");
+      content.style.maxHeight = null;
+    }
+  }
+};
