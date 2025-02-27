@@ -1,26 +1,26 @@
 function calculateAgeMultiplier(age) {
     if (0 <= age && age <= 1) {
-        return 2.40;
+        return 2.89;
     } else if (1 < age && age <= 2) {
-        return 2.36;
+        return 2.85;
     } else if (2 < age && age <= 3) {
-        return 2.32;
+        return 2.81;
     } else if (3 < age && age <= 4) {
-        return 2.28;
+        return 2.77;
     } else if (4 < age && age <= 5) {
-        return 2.24;
+        return 2.73;
     } else if (5 < age && age <= 6) {
-        return 2.20;
+        return 2.69;
     } else if (6 < age && age <= 7) {
-        return 2.16;
+        return 2.65;
     } else if (7 < age && age <= 8) {
-        return 2.12;
+        return 2.61;
     } else if (8 < age && age <= 9) {
-        return 2.08;
+        return 2.57;
     } else if (9 < age && age <= 10) {
-        return 2.04;
+        return 2.53;
     } else if (age > 10) {
-        return 2;
+        return 2.49;
     } else {
         // Handle invalid age
         console.log('Invalid age:', age);
