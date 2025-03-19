@@ -484,7 +484,7 @@ function parkingreset() {
     document.getElementById('parking-length').value = '';
     document.getElementById('parking-days').value = '';
     document.getElementById('parking-RW').value = '20';
-    document.getElementById('parking-fee').value = '0.63';
+    document.getElementById('parking-fee').value = '0.65';
     document.getElementById('parking-result').innerText = '';
     // Uncheck the advanced calculation checkbox
     document.getElementById('showAdvancedCalc').checked = false;
@@ -534,7 +534,7 @@ function sidewalkreset() {
     document.getElementById('sidewalks-length').value = '';
     document.getElementById('sidewalks-days').value = '';
     document.getElementById('sidewalks-RW').value = '20';
-    document.getElementById('sidewalks-cost').value = '0.67';
+    document.getElementById('sidewalks-cost').value = '0.69';
     var dropdown = document.getElementById("detour-reduce");
 
     dropdown.selectedIndex  = 0;
@@ -564,7 +564,7 @@ function metercalc() {
 function meterreset() {
     document.getElementById('meter-days').value = '';
     document.getElementById('number-meters').value = '';
-    document.getElementById('cost-meters').value = '3.47';
+    document.getElementById('cost-meters').value = '3.56';
     document.getElementById('meter-result').innerText = '';
 }
 
@@ -587,7 +587,7 @@ function alleycalc() {
 function alleyreset() {
     document.getElementById('alleys').value = '';
     document.getElementById('alley-days').value = '';
-    document.getElementById('alley-cost').value = '1.74';
+    document.getElementById('alley-cost').value = '1.79';
     document.getElementById('alley-result').innerText = '';
 }
 
@@ -622,7 +622,7 @@ function totalTrafficControll() {
     var factor = factorForDrivingLanes();
     var factorTravel = onewaytwoway();
 
-    total = 88 + (alleys * alleydays * alleycost) + (number * meterdays * meterscost) + (sidewalksSides * (sidewalksLength / sidewalksRW) * sidewalksFee * sidewalkdays * sidewalkReduce) + (parkingSides * (parkingLength / parkingRW) * parkingFee * parkingDays) + (ADT * detour * detourDays * detourUnit * factorTravel * factor * detourReduce)
+    total = 90.29 + (alleys * alleydays * alleycost) + (number * meterdays * meterscost) + (sidewalksSides * (sidewalksLength / sidewalksRW) * sidewalksFee * sidewalkdays * sidewalkReduce) + (parkingSides * (parkingLength / parkingRW) * parkingFee * parkingDays) + (ADT * detour * detourDays * detourUnit * factorTravel * factor * detourReduce)
 
     if(isNaN(total)) {
         document.getElementById('total-result').innerText = '';
@@ -675,7 +675,7 @@ function showAdvancedCalctraffic() {
             resultElementTraffic.insertAdjacentElement('afterend', detailsElementTraffic);
         }
 
-        detailsElementTraffic.innerText = `Application Fee: $88`;
+        detailsElementTraffic.innerText = `Application Fee: $90.29`;
         detailsElementTraffic.innerText += `${isNaN(ADT) ? "" :`\nADT: ${ADT}`}`;
         detailsElementTraffic.innerText += `${isNaN(detourDays) ? "" :`\nDetour Days: ${detourDays}`}`;
         detailsElementTraffic.innerText += `${isNaN(detour) ? "" :`\nDetour Length: ${detour.toFixed(2)} Miles`} `;
@@ -710,7 +710,7 @@ function showAdvancedCalctraffic() {
         detailsElementTraffic.innerText += `${isNaN(alleycost) ? "" :`\nAlley Cost: $${alleycost.toFixed(2)}`}`;
         detailsElementTraffic.innerText += `${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" :`\n${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" : "$" + alleys + ' X ' + alleydays + ' days'  + ' X ' + alleycost} ${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" : "= $"} ${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) ? "" : (alleys * alleydays * alleycost).toFixed(2)}`}`;
 
-        detailsElementTraffic.innerText += `\n${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) || isNaN(number) || isNaN(meterdays) || isNaN(meterscost) || isNaN(sidewalksSides) || isNaN(sidewalksLength) || isNaN(sidewalksRW) || isNaN(sidewalksFee) || isNaN(sidewalkdays) || isNaN(sidewalkReduce) || isNaN(parkingSides) || isNaN(parkingLength) || isNaN(parkingRW) || isNaN(parkingFee) || isNaN(parkingDays) || isNaN(detour) || isNaN(detourDays) || isNaN(detourUnit) || isNaN(factorTravel) || isNaN(factor) || isNaN(detourReduce) ? "" :`\nTotal Traffic Control: $${(88 + (alleys * alleydays * alleycost) + (number * meterdays * meterscost) + (sidewalksSides * (sidewalksLength / sidewalksRW) * sidewalksFee * sidewalkdays * sidewalkReduce) + (parkingSides * (parkingLength / parkingRW) * parkingFee * parkingDays) + (ADT * detour * detourDays * detourUnit * factorTravel * factor * detourReduce)).toFixed(2)}`}`;
+        detailsElementTraffic.innerText += `\n${isNaN(alleys) || isNaN(alleydays) || isNaN(alleycost) || isNaN(number) || isNaN(meterdays) || isNaN(meterscost) || isNaN(sidewalksSides) || isNaN(sidewalksLength) || isNaN(sidewalksRW) || isNaN(sidewalksFee) || isNaN(sidewalkdays) || isNaN(sidewalkReduce) || isNaN(parkingSides) || isNaN(parkingLength) || isNaN(parkingRW) || isNaN(parkingFee) || isNaN(parkingDays) || isNaN(detour) || isNaN(detourDays) || isNaN(detourUnit) || isNaN(factorTravel) || isNaN(factor) || isNaN(detourReduce) ? "" :`\nTotal Traffic Control: $${(90.29 + (alleys * alleydays * alleycost) + (number * meterdays * meterscost) + (sidewalksSides * (sidewalksLength / sidewalksRW) * sidewalksFee * sidewalkdays * sidewalkReduce) + (parkingSides * (parkingLength / parkingRW) * parkingFee * parkingDays) + (ADT * detour * detourDays * detourUnit * factorTravel * factor * detourReduce)).toFixed(2)}`}`;
     } else {
         // If the checkbox is unchecked, remove the details element if it exists
         if (detailsElementTraffic) {
@@ -826,33 +826,33 @@ function factorForDrivingLanes() {
 
     if (!isNaN(closed) && !isNaN(total)) {
         if (closed === 1 && total === 1) {
-            factor = 1.17;
+            factor = 1.15;
         } else if (closed === 1 && total === 2) {
-            factor = 0.58;
+            factor = 0.46;
         } else if (closed === 1 && total === 3) {
-            factor = 0.39;
-        } else if (closed === 1 && total === 4) {
-            factor = 0.29;
-        } else if (closed === 1 && total === 5) {
             factor = 0.23;
+        } else if (closed === 1 && total === 4) {
+            factor = 0.17;
+        } else if (closed === 1 && total === 5) {
+            factor = 0.12;
         } else if (closed === 2 && total === 2) {
             factor = 1.17;
         } else if (closed === 2 && total === 3) {
-            factor = 0.58;
+            factor = 0.69;
         } else if (closed === 2 && total === 4) {
-            factor = 0.39;
+            factor = 0.46;
         } else if (closed === 2 && total === 5) {
-            factor = 0.29;
+            factor = 0.40;
         } else if (closed === 3 && total === 3) {
             factor = 1.17;
         } else if (closed === 3 && total === 4) {
-            factor = 0.58;
+            factor = 0.75;
         } else if (closed === 3 && total === 5) {
-            factor = 0.39;
+            factor = 0.64;
         } else if (closed === 4 && total === 4) {
             factor = 1.17;
         } else if (closed === 4 && total === 5) {
-            factor = 0.58;
+            factor = 0.81;
         } else if (closed === 5 && total === 5) {
             factor = 1.17;
         }
@@ -1026,10 +1026,10 @@ function streetplatePermit() {
 
     switch (permitfee) {
         case '1':
-            permitfee = 0.45;
+            permitfee = 0.46;
             break;
         case '2':
-            permitfee = 0.90;
+            permitfee = 0.92;
             break;
     }
     return permitfee;
@@ -1041,10 +1041,10 @@ function upfrontfee() {
 
     switch (upfrontfee) {
         case '1':
-            upfrontfee = 29;
+            upfrontfee = 29.75;
             break;
         case '2':
-            upfrontfee = 117;
+            upfrontfee = 120.04;
             break;
     }
     return upfrontfee;
